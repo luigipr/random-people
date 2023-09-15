@@ -10,6 +10,14 @@ async function getPersonById(id: number) {
     return person;
 }
 
+async function getPersons() {
+    const result = await connection.query(
+        `SELECT * FROM people`
+    );
+    const qtd = result.rowCount
+    return qtd;
+}
+
 async function createPeople(people: createPeople) {
     const {firstName, lastName} = people;
     console.log(firstName, lastName)
@@ -17,4 +25,4 @@ async function createPeople(people: createPeople) {
  }
 
 
-  export const peopleRepository = {getPersonById, createPeople}
+  export const peopleRepository = {getPersonById, createPeople, getPersons}
