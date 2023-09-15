@@ -5,7 +5,7 @@ import { peopleSchema } from "../schemas/people.schema";
 
 const peopleRouter = Router();
 
-peopleRouter.get("/person", peopleController.getPeople);
+peopleRouter.get("/person/:id", peopleController.getPeople);
 peopleRouter.post("/person", validateSchema(peopleSchema), peopleController.createPeople); // TODO: validação via Joi
 
 export default peopleRouter;
